@@ -5,30 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashwini Kumar - Software Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Dosis', sans-serif;
         }
 
         body {
             background-color: #f8f9fa;
             color: #2d3436;
             line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            overflow-x: hidden;
         }
 
         nav {
-            background-color: #fff;
+            background-color: #000; 
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -39,17 +34,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .nav-links a {
-            color: #2d3436;
+            color: #fff;
             text-decoration: none;
             margin-left: 2rem;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #0984e3;
+            transform: scale(1.05);
         }
 
         .hero {
@@ -58,36 +57,56 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 60px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('profile-bg.jpg') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             margin-bottom: 2rem;
             border: 4px solid #fff;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
-            font-size: 1.5rem;
-            color: #636e72;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
             font-weight: 400;
         }
 
         .bio {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 2rem;
-            color: #636e72;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .social-links {
@@ -95,14 +114,66 @@
         }
 
         .social-links a {
-            color: #2d3436;
-            font-size: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
             margin: 0 1rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links a:hover {
             color: #0984e3;
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .section-white {
+            background-color: #fff;
+            color: #2d3436;
+        }
+
+        .section-black {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .section-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            padding: 3rem 0;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            color: #636e72;
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -111,27 +182,27 @@
             }
 
             h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
+                font-size: 2.5rem;
             }
 
             .profile-img {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .section-card {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="container nav-content">
-            <h3>Ashwini Kumar</h3>
+        <div class="nav-content">
+            <h3 style="color: white;">Ashwini Kumar</h3>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -151,31 +222,161 @@
         </div>
     </section>
 
-    <!-- Additional Sections (Uncomment and customize as needed) -->
-    <!--
-    <section id="about" class="section">
+    <!-- About Section -->
+    <section id="about" class="section section-white">
         <div class="container">
-            <h2>About Me</h2>
-            <p>Detailed description of your skills and experience</p>
+            <h2 class="section-title">About Me</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+                Full-stack developer with expertise in modern web technologies. Passionate about creating efficient, scalable solutions with clean code architecture. Experienced in building responsive web applications from concept to deployment.
+            </p>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                Project cards go here
+    <section id="experience" class="experience-section">
+        <div class="experience-title">
+            <h2>Experience</h2>
+        </div>
+        <div class="experience-container">
+            <div class="experience-item">
+                <h3>Software Engineer (SE) L3</h3>
+                <p><strong>OPPO R&D India</strong> | July 2023 - Present</p>
+                <p>Developed a sophisticated Android device testing tool improving efficiency by 90%.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Software Development Engineer Intern</h3>
+                <p><strong>Fundwave Technologies</strong> | June 2022 - July 2022</p>
+                <p>Optimized distributed systems with HA Proxy load balancer, reducing response times by 25%.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Quantitative Data Analyst Intern</h3>
+                <p><strong>Alphabots Analytics</strong> | May 2021 - July 2021</p>
+                <p>Implemented LSTM-based forecasting, increasing stock prediction accuracy by 20%.</p>
             </div>
         </div>
     </section>
+    
 
-    <section id="contact" class="section">
+
+    <style>
+/* Experience Section */
+.experience-section {
+    display: flex;
+    align-items: center;
+    padding: 5rem 10%;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+}
+
+/* Left Side: Experience Title */
+.experience-title {
+    flex: 1;
+    text-align: left;
+}
+
+.experience-title h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: none; /* Keeps capitalization as "Experience" */
+    color: #fff; /* Ensures the title is visible */
+}
+
+/* Right Side: Experience Timeline */
+.experience-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 3rem;
+}
+
+.experience-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for contrast */
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeline {
+    flex: 2;
+    position: relative;
+    padding-left: 2rem;
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f1f1f1;
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+/* Hover Effect */
+.timeline-item:hover {
+    transform: scale(1.05);
+    background: #0984e3;
+    color: #fff;
+}
+
+/* Timeline Content */
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+    padding-left: 1.5rem;
+}
+
+.timeline-content ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .experience-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-title h2 {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+
+    .timeline {
+        padding-left: 0;
+    }
+}
+
+    </style>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-white">
         <div class="container">
-            <h2>Get in Touch</h2>
-            Contact form goes here
+            <h2 class="section-title">Contact</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+                Feel free to reach out to me via email or through my social media profiles.
+            </p>
         </div>
     </section>
-    -->
 
     <script>
         // Smooth scrolling for navigation links
@@ -185,19 +386,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-            });
-        });
-
-        // Add scroll animation for sections
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if(sectionTop < windowHeight * 0.8) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }
             });
         });
     </script>
